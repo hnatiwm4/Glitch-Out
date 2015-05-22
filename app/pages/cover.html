@@ -1,33 +1,70 @@
-<!DOCTYPE html>
+<!Doctype html>
 
 <html lang="en">
-  
+
 <head>
   <title>Glitched | Out</title>
-  <!-- load dropzone.css -->
+  <!-- load bootstrap -->
+  <link type="text/css" rel="stylesheet" href="/var/www/html/GlitchedOut/bootstrap-3.3.4/dist/css/bootstrap.min.css">
+  <link type="text/css" rel="stylesheet" href="/var/www/html/GlitchedOut/bootstrap-3.3.4/dist/css/bootstrap-theme.min.css">
+  <link type="text/css" rel="stylesheet" href="/var/www/html/GlitchedOut/bootstrap-3.3.4/dist/js/bootstrap.min.js">
+
+    <!-- Load dropzone.css -->
   <link type="text/css" rel="stylesheet" href="/var/www/html/GlitchedOut/resources/css/dropzone.css">
-  <!-- load jquery modiles -->
+  <!-- link main user defined style sheet -->
+  <link type="text/css" rel="stylesheet" href="/var/www/html/GlitchedOut/resources/css/style.css">
+
+  <!-- load JS modiles -->
   <script src="http://code.jquery.com/jquery-2.0.3.min.js"></script>
   <!-- load dropzone.js -->
   <script language="javascript" type="text/javascript" src="/var/www/html/GlitchedOut/resources/js/dropzone.js"></script>
+  <!-- load CreateJS for EaselJS through CDN URL -->
+  <script language="javascript" type="text/javascript" src="https://code.createjs.com/createjs-2014.12.12.min.js"></script>
   <!-- load user defined JS scripts -->
   <script language="javascript" type="text/javascript" src="/var/www/html/GlitchedOut/resources/js/rgbshift.js"></script>
 </head>
 
-<body>
-  <img  src="/var/www/html/GlitchedOut/test/imgs/RISKY.png" height="724" width="701">
+<body> 
 
-  <!-- simple dropone form -->
-  <form action="/upload-target" class="dropzone dz-clickable">
-    <div class="dz-default dz-message">
-      <span> Drop Files here </span
-    </div>
-  </form>
-  <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+  <div class="page-wrapper">
 
-  <form>
-    <button type="button" onclick="test()">Click to RGB Shift</button>
-  </form>
+    <!-- HEADER GOES HERE -->
+    <nav class="navbar navbar-inverse">
+    </nav>
+
+    <div class="container row">
+
+      <!-- simple dropone form -->
+      <div id="left-col">
+	<img id="main-img" src="/var/www/html/GlitchedOut/test/imgs/RISKY.png" />
+      </div>
+
+      <!-- bootstrap styled controls for editing the images, uses pure JS -->
+      <div id="right-col">
+	<div id="inner-right-col">
+	  <div id="drag-n-drop">
+	    <form id="upload-form" action="/upload/file" method="post" class="dropzone dz-clickable">
+	      <div class="dz-default dz-message">
+		Drop files here or Click to Upload!
+	      </div>
+	    </form>
+	    <input type="file" multiple="multiple" class="dz-hidden-input" style="visibility: hidden; position: absolute; top: 0px; left: 0px; height: 0px; width: 0px;">
+	  </div>
+	</div>
+
+	<!-- TEST button used to run rgbshift effect JS -->
+	<button id="testbtn" onclick="test('/var/www/html/GlitchedOut/test/imgs/RISKY.png')">Test RGB SHIFT</button>
+
+      </div>
+      
+      <!-- clear floated divs -->
+      <div class="clearfix"></div>
+
+    </div> <!-- container -->
+
+    <!-- FOOTER GOES HERE -->
+
+  </div> <!-- page-wrapper -->
 
 </body>
 

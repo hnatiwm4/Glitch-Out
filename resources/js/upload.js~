@@ -1,0 +1,36 @@
+/* JS used to upload files on-click event from the dropzone form */
+
+/* uses blue-imp JQuery basic file upload, installed using: npm i --save blueimp-file-upload-expressjs in resources/js directory */
+var options = {
+  tmpDir: __dirname + '../../temp',
+  uploadDir: __dirname + '../../temp/uploaded/',
+  uploadUrl: '/uploaded/files/',
+  storage: {
+    type: 'local'
+  }
+};
+ 
+var uploader = require('blueimp-file-upload-expressjs')(options);
+ 
+module.exports = function(router) {
+  router.get('/upload', function(req, res) {
+    uploader.get(req, res, function(obj) {
+      res.send(JSON.stringify(obj));
+    });
+  });
+ 
+  router.post('/upload', function(req, res) {
+    uploader.post(req, res, function(obj) {
+      res.send(JSON.stringify(obj));
+    });
+  });
+ 
+  router.delete('/uploaded/files/:name', function(req, res) {
+    uploader.delete(req, res, function(obj) {
+      res.send(JSON.stringify(obj));
+    });
+  });
+  return router;
+};
+
+

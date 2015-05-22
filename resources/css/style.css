@@ -1,5 +1,98 @@
+/* page setup */
+
+* { margin: 0; }
 
 html, body{
+    margin: 0 auto;
+    padding: 0 auto;
     height: 100%;
+    overfow: hidden;
     text-align: left;
 }
+
+/* complete page wrapper */
+.page-wrapper, .container{
+    height: 100%;
+    width: 100%;
+}
+
+div#left-col{
+    height: 95%;
+    width: 78%;
+    float: left;
+    margin-left: 20px;
+    text-align: center;
+    /* for mocking layout */
+    border-style: solid;
+    border-color: blue;
+}
+
+div#right-col{
+    height: 95%;
+    width: 20%;
+    float: right;
+    text-align: bottom;
+    position: relative;
+    /* for mocking layouts */
+    border-style: solid;
+    border-color: red;
+}
+
+div#inner-right-col{
+    height: 22%;
+    width: 100%;
+    margin-top: 10px;
+    position: absolute:
+    bottom: 0;
+    /* for mocking layout */
+    border-style: solid;
+    border-color: green;
+}
+
+img#main-img{
+    z-index: 1;
+    height: 100%;
+}
+
+
+/* specific elements */
+#upload-form{
+    text-align: center;
+    min-height: 100%;
+}
+
+#drag-n-drop{
+    /* centers better div inside container 
+    padding-top: 2.7%; */
+    /* push div to onside and shorten length */
+    width: 75%;
+    /* center div in middle */
+    margin: 0 auto;
+}
+
+/* DROPZONE ADDITION/OVERWRITE IDs/CLASSES */
+.dropzone{
+    min-height: 100%;
+    padding: 0;
+    border: 2px dashed rgba(0,0,0,0.3);
+}
+
+/* BOOTSTRAP ADDITIONS/OVERRIDES IDs/CLASSES */
+.navbar, .navbar-inverse{
+    min-height: 5%; /*override*/
+    margin-bottom: 0; /*override*/
+}
+
+
+/* clear floats -source by Tony Aslett*/
+.clearfix:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    height:0;
+    clear: both;
+    height: 0;
+}
+.clearfix {display: inline-block;}
+* html .clearfix             { zoom: 1; } /* IE6 */
+*:first-child+html .clearfix { zoom: 1; } /* IE7 */
